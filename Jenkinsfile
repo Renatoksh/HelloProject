@@ -1,25 +1,22 @@
 pipeline{
     agent any
     stages{
-        stage('Git Clone'){
+        stage('Git clone'){
             steps{
-                git branch: 'main', url: 'https://github.com/Renatoksh/HelloProject.git'
+                git 'https://github.com/shazforiot/HelloWorld-Springboot-App.git'
             }
         }
-        stage('Maven Test'){
-            steps{
-                sh 'mvn test'
-            }
-        }
-        stage('Maven Build'){
+        
+        stage('maven build'){
             steps{
                 sh 'mvn package'
             }
         }
-        stage('Maven Deploy'){
+        stage('Create Dockerimage'){
             steps{
-                echo 'Deploying the war file to the server'
+                sh 'docker build -t thetips4you/springboot:latest .'
             }
         }
+        
     }
 }
