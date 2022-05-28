@@ -7,14 +7,19 @@ pipeline{
             }
         }
         
-        stage('maven build'){
+        stage('maven Test'){
+            steps{
+                sh 'mvn test'
+            }
+        }
+                stage('maven Build'){
             steps{
                 sh 'mvn package'
             }
         }
         stage('Create Dockerimage'){
             steps{
-                sh 'docker build -t thetips4you/springboot:latest .'
+                echo "Deploy the war file to the server"
             }
         }
         
