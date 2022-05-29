@@ -11,12 +11,7 @@ pipeline{
             steps{
                 sh 'mvn test'
             }
-        }
-                stage('maven Build'){
-            steps{
-                sh 'mvn package'
-            }
-        }
+        
         stage('Create Dockerimage'){
             steps{
                 echo "Deploy the war file to the server"
