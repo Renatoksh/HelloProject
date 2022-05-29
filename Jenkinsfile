@@ -13,7 +13,7 @@ pipeline{
         }
         stage('mvn staging'){
             steps{
-                "#!/bin/bash"
+                !/bin/bash
                 echo "##########Detecting the OS Version######"
                 cat /etc/redhat-release
                 echo "##########Kernel Version########"
