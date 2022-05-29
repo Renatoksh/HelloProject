@@ -11,6 +11,15 @@ pipeline{
                 sh 'mvn test'
             }
         }
+        stage('mvn staging'){
+            steps{
+                #/bin/bash
+                echo "##########Detecting the OS Version######"
+                cat /etc/redhat-release
+                echo "##########Kernel Version########"
+                uname -a    
+            }
+        }
         stage('Create Dockerimage'){
             steps{
                 echo "Deploy the war file to the server"
